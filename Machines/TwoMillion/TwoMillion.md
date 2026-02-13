@@ -2,8 +2,6 @@
 
 ## Overview
 
----
-
 **TwoMillion** is a Linux-based Hack The Box machine focused on web API abuse and privilege escalation.
 
 The compromise began by deobfuscating client-side JavaScript to uncover hidden API endpoints. A Mass Assignment vulnerability allowed privilege escalation to administrator, which exposed a command injection flaw in a VPN generation endpoint, leading to Remote Code Execution.
@@ -11,8 +9,6 @@ The compromise began by deobfuscating client-side JavaScript to uncover hidden A
 Post-exploitation revealed database credentials inside a .env file, enabling SSH access. Root privileges were ultimately obtained by exploiting **CVE-2023-0386 (OverlayFS)** in the Linux kernel.
 
 ## **Skills Demonstrated**
-
----
 
 **Web & Application Security**
 
@@ -27,7 +23,6 @@ Post-exploitation revealed database credentials inside a .env file, enabling SSH
 
 ## Nmap Enumeration
 
----
 
 The initial Nmap scan revealed two main open ports: **SSH** on port **22** and **HTTP** on port **80.**
 
@@ -81,7 +76,6 @@ With the corrected entry in **`/etc/hosts`**, the logical next step is to perfor
 
 ## **Web Application Enumeration**
 
----
 
 Navigating to**`http://2million.htb`** after updating the **`/etc/hosts`** file displays the target web application.
 
