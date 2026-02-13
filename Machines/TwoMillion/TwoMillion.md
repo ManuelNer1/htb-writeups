@@ -1,5 +1,9 @@
 # TwoMillion
 
+**OS:** Linux  
+**Difficulty:** Easy  
+**Focus:** Web API Abuse → Privilege Escalation → Kernel Exploitation  
+
 ## Overview
 
 **TwoMillion** is a Linux-based Hack The Box machine focused on web API abuse and privilege escalation.
@@ -570,3 +574,22 @@ By applying these steps sequentially, the final message was successfully reveale
 ![image.png](TwoMillion/image%2013.png)
 
 ![image.png](TwoMillion/image%2014.png)
+
+---
+
+## Lessons Learned
+
+- Client-side obfuscation does not protect backend logic.
+- APIs must enforce strict server-side role validation.
+- Mass Assignment vulnerabilities can expose hidden privilege parameters.
+- Admin endpoints should never be publicly documented.
+- Kernel patch management is critical in production systems.
+
+---
+
+## Mitigation
+- Enforce server-side authorization checks.
+- Remove sensitive data from .env files in production.
+- Sanitize input in system-level command execution.
+- Restrict API documentation exposure.
+- Apply security patches promptly.
