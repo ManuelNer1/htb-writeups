@@ -1,5 +1,10 @@
 # CozyHosting
 
+
+**OS:** Linux  
+**Difficulty:** Easy  
+**Focus:** Spring Boot → Session Hijacking → Command Injection → Sudo Misconfiguration 
+
 ## Overview
 
 **CozyHosting** is an easy Linux machine from Hack The Box that focuses on:
@@ -549,3 +554,26 @@ root.txt
 - ;sh 0<&2 1>&2 spawns a shell
 - File descriptors are redirected to maintain interactivity
 - Since ssh is executed with sudo, the spawned shell runs as **root**
+
+---
+
+## Lessons Learned
+
+- Spring Boot Actuator endpoints must never be exposed in production.
+- Exposed session identifiers can lead to full authentication bypass.
+- Blind command injection can be reliably confirmed using time-based payloads.
+- Hardcoded database credentials significantly increase lateral movement risk.
+- Password reuse between applications and system accounts enables rapid privilege escalation.
+- Allowing unrestricted arguments in sudo configurations can lead to full system compromise.
+
+---
+
+## Mitigation
+
+- Restrict or disable `/actuator` endpoints in production environments.
+- Protect session identifiers and enforce secure cookie flags (HttpOnly, Secure).
+- Implement strict input validation and avoid shell execution of user-controlled parameters.
+- Remove hardcoded credentials from application configuration files.
+- Enforce strong password policies and prevent credential reuse.
+- Avoid wildcard sudo permissions such as `/usr/bin/ssh *`.
+
